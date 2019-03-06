@@ -57,6 +57,18 @@ public class SMDRParser {
 		// Digits Dialed on the Trunk
 		pattern += "([0-9\\s]{20,20})"; 
 		
+		// Spacer
+		pattern += "\\s";
+		
+		// Meter pulses
+		pattern += "([0-9\\s]{5,5})"; 
+		
+		// Call Completion Status
+		pattern += "([ABETIP\\s]{1,1})"; 
+		
+		// Speed Call/Call Forward Flag
+		pattern += "([SF\\s]{1,1})"; 
+		
 		Pattern smdrPattern = Pattern.compile(pattern);
 		
 		Matcher m = smdrPattern.matcher(smdrRecord);
@@ -72,6 +84,9 @@ public class SMDRParser {
 		String callingParty				= m.group(7);
 		String timeToAnswer				= m.group(8);
 		String digitsDialedOnTheTrunk 	= m.group(9);
+		String meterPulses				= m.group(10);
+		String callCompletionStatus		= m.group(11);
+		String speedCall				= m.group(12);
 		
 		SMDRRecord result = new SMDRRecord();
 		result.setLongCall(longCall);
@@ -81,6 +96,9 @@ public class SMDRParser {
 		result.setCallingParty(callingParty);
 		result.setTimeToAnswer(timeToAnswer);
 		result.setDigitsDialedOnTheTrunk(digitsDialedOnTheTrunk);
+		result.setMeterPulses(meterPulses);
+		result.setCallCompletionStatus(callCompletionStatus);
+		result.setSpeedCall(speedCall);
 		
 		return result;
 	}

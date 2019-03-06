@@ -8,6 +8,9 @@ public class SMDRRecord {
 	private String callingParty;
 	private String timeToAnswer;
 	private String digitsDialedOnTheTrunk;
+	private String meterPulses;
+	private String callCompletionStatus;
+	private String speedCall;
 	
 	public String getLongCall() {
 		return longCall;
@@ -63,5 +66,37 @@ public class SMDRRecord {
 	
 	public void setDigitsDialedOnTheTrunk(String digitsDialedOnTheTrunk) {
 		this.digitsDialedOnTheTrunk = digitsDialedOnTheTrunk;
+	}
+	
+	public String getMeterPulses() {
+		return meterPulses;
+	}
+
+	public void setMeterPulses(String meterPulses) {
+		this.meterPulses = meterPulses;
+	}
+
+	public String getCallCompletionStatus() {
+		return callCompletionStatus;
+	}
+
+	public void setCallCompletionStatus(String callCompletionStatus) {
+		this.callCompletionStatus = callCompletionStatus;
+	}
+
+	public String getSpeedCall() {
+		return speedCall;
+	}
+
+	public void setSpeedCall(String speedCall) {
+		this.speedCall = speedCall;
+	}
+
+	public String getDirection() {
+		if(this.callingParty == null || "".equals(this.callingParty.trim())) {
+			return "I";
+		}
+		
+		return "O";
 	}
 }
