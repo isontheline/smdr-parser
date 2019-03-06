@@ -11,6 +11,14 @@ public class SMDRRecord {
 	private String meterPulses;
 	private String callCompletionStatus;
 	private String speedCall;
+	private String calledParty;
+	private String transferConferenceFlag;
+	private String thirdParty;
+	private String accountCode;
+	private String routeOptimizationFlag;
+	private String systemIdentifier;
+	private String aniNumber;
+	private String dnisNumber;
 	
 	public String getLongCall() {
 		return longCall;
@@ -90,6 +98,70 @@ public class SMDRRecord {
 
 	public void setSpeedCall(String speedCall) {
 		this.speedCall = speedCall;
+	}
+
+	public String getCalledParty() {
+		return calledParty;
+	}
+
+	public void setCalledParty(String calledParty) {
+		this.calledParty = calledParty;
+	}
+
+	public String getTransferConferenceFlag() {
+		return transferConferenceFlag;
+	}
+
+	public void setTransferConferenceFlag(String transferConferenceFlag) {
+		this.transferConferenceFlag = transferConferenceFlag;
+	}
+
+	public String getThirdParty() {
+		return thirdParty;
+	}
+
+	public void setThirdParty(String thirdParty) {
+		this.thirdParty = thirdParty;
+	}
+
+	public String getAccountCode() {
+		return accountCode;
+	}
+
+	public void setAccountCode(String accountCode) {
+		this.accountCode = accountCode;
+	}
+
+	public String getRouteOptimizationFlag() {
+		return routeOptimizationFlag;
+	}
+
+	public void setRouteOptimizationFlag(String routeOptimizationFlag) {
+		this.routeOptimizationFlag = routeOptimizationFlag;
+	}
+
+	public String getSystemIdentifier() {
+		return systemIdentifier;
+	}
+
+	public void setSystemIdentifier(String systemIdentifier) {
+		this.systemIdentifier = systemIdentifier;
+	}
+
+	public String getAniNumber() {
+		return aniNumber;
+	}
+
+	public void setAniNumber(String aniNumber) {
+		this.aniNumber = aniNumber;
+	}
+
+	public String getDnisNumber() {
+		return dnisNumber;
+	}
+
+	public void setDnisNumber(String dnisNumber) {
+		this.dnisNumber = dnisNumber;
 	}
 
 	public String getDirection() {

@@ -47,6 +47,14 @@ public class SMDRParserTest {
 			System.out.println("Meter Pulses           : " + record.getMeterPulses());
 			System.out.println("Call Completion Status : " + record.getCallCompletionStatus());
 			System.out.println("Speed Call             : " + record.getSpeedCall());
+			System.out.println("Called Party           : " + record.getCalledParty());
+			System.out.println("Transfer / Conf. Flag  : " + record.getTransferConferenceFlag());
+			System.out.println("Third Party            : " + record.getThirdParty());
+			System.out.println("Account Code           : " + record.getAccountCode());
+			System.out.println("Route Optim. Flag      : " + record.getRouteOptimizationFlag());
+			System.out.println("System Identifier      : " + record.getSystemIdentifier());
+			System.out.println("ANI Number             : " + record.getAniNumber());
+			System.out.println("DNIS Number            : " + record.getDnisNumber());
 			
 			System.out.println("Direction              : " + record.getDirection());
 			

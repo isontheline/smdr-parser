@@ -43,7 +43,7 @@ public class SMDRParser {
 		pattern += "\\s";
 		
 		// Calling Party
-		pattern += "([0-9\\s]{4," + callingPartyMaxDigits + "})"; 
+		pattern += "([0-9\\s]{" + callingPartyMaxDigits + "," + callingPartyMaxDigits + "})"; 
 		
 		// Spacer
 		pattern += "\\s";
@@ -69,6 +69,42 @@ public class SMDRParser {
 		// Speed Call/Call Forward Flag
 		pattern += "([SF\\s]{1,1})"; 
 		
+		// Called Party
+		pattern += "([0-9\\s]{15,15})"; 
+		
+		// Transfer / Conference Flag
+		pattern += "([TXCUIR\\s]{1,1})"; 
+		
+		// Spacer
+		pattern += "\\s";
+		
+		// Third Party
+		pattern += "([0-9\\s]{" + callingPartyMaxDigits + "," + callingPartyMaxDigits + "})"; 
+		
+		// Spacer
+		pattern += "\\s";
+		
+		// Account Code / Tag Call Indentifier
+		pattern += "([0-9a-z=#\\*\\s]{12,12})";
+		
+		// Route Optimization Flag
+		pattern += "([rR\\s]{1,1})";
+		
+		// System Identifier
+		pattern += "([0-9]{3,3})";
+		
+		// Spacer
+		pattern += "[\\s]{3,3}";
+		
+		// ANI Number
+		pattern += "([0-9\\s]{20,20})";
+		
+		// Spacer
+		pattern += "\\s";
+		
+		// DNIS Number
+		pattern += "([0-9\\s]{" + callingPartyMaxDigits + "," + callingPartyMaxDigits + "})";
+		
 		Pattern smdrPattern = Pattern.compile(pattern);
 		
 		Matcher m = smdrPattern.matcher(smdrRecord);
@@ -87,6 +123,14 @@ public class SMDRParser {
 		String meterPulses				= m.group(10);
 		String callCompletionStatus		= m.group(11);
 		String speedCall				= m.group(12);
+		String calledParty				= m.group(13);
+		String transferConferenceFlag	= m.group(14);
+		String thirdParty				= m.group(15);
+		String accountCode				= m.group(16);
+		String routeOptimizationFlag	= m.group(17);
+		String systemIdentifier			= m .group(18);
+		String aniNumber				= m.group(19);
+		String dnisNumber				= m.group(20);
 		
 		SMDRRecord result = new SMDRRecord();
 		result.setLongCall(longCall);
@@ -99,6 +143,14 @@ public class SMDRParser {
 		result.setMeterPulses(meterPulses);
 		result.setCallCompletionStatus(callCompletionStatus);
 		result.setSpeedCall(speedCall);
+		result.setCalledParty(calledParty);
+		result.setTransferConferenceFlag(transferConferenceFlag);
+		result.setThirdParty(thirdParty);
+		result.setAccountCode(accountCode);
+		result.setRouteOptimizationFlag(routeOptimizationFlag);
+		result.setSystemIdentifier(systemIdentifier);
+		result.setAniNumber(aniNumber);
+		result.setDnisNumber(dnisNumber);
 		
 		return result;
 	}
